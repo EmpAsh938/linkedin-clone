@@ -25,7 +25,7 @@ const SignUp = () => {
           photoURL: photo,
         });
       });
-      dispatch(createAccount({ fname: fullName, mail: email, pass: password }));
+      dispatch(createAccount({ fname: fullName, mail: email, pic: photo }));
       setFullName("");
       setEmail("");
       setPassword("");

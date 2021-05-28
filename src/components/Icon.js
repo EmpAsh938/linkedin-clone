@@ -10,6 +10,7 @@ const Icon = ({ title, DefaultIcon, profileImage }) => {
     auth
       .signOut()
       .then(() => {
+        localStorage.removeItem("UserCred");
         dispatch(signOut());
       })
       .catch((error) => {
@@ -23,12 +24,12 @@ const Icon = ({ title, DefaultIcon, profileImage }) => {
       ) : (
         <div className="icon__profile">
           <img src={profileImage} alt="profile" className="icon__image" />
-          <div className="icon__signout">
-            <button onClick={handleSignOut}>SignOut</button>
-          </div>
         </div>
       )}
       <h3 className="icon__title">{title}</h3>
+      <div className="icon__signout">
+        <button onClick={handleSignOut}>SignOut</button>
+      </div>
     </div>
   );
 };

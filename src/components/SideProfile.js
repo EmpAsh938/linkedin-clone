@@ -1,9 +1,6 @@
-import { useSelector } from "react-redux";
-
 import "./SideProfile.css";
 
-const SideProfile = ({ username, photo }) => {
-  const user = useSelector((state) => state.posts.creds);
+const SideProfile = ({ username, photo, email }) => {
   return (
     <div className="sideprofile">
       <div className="sideprofile__top">
@@ -11,8 +8,8 @@ const SideProfile = ({ username, photo }) => {
           <img src={photo || "/images/avatar.jpeg"} alt="profile" />
         </div>
         <div className="sideprofile__title">
-          <h2>{user.fullName || username}</h2>
-          <h4 className="sideprofile__text">{user.email}</h4>
+          <h2>{username}</h2>
+          <h4 className="sideprofile__text">{email}</h4>
         </div>
         <div className="sideprofile__stats">
           <div>

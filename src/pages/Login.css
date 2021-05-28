@@ -1,12 +1,12 @@
 .account {
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  padding-top: 2em;
 }
 
 .account__wrapper {
   max-width: 400px;
-  margin: 2em auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;

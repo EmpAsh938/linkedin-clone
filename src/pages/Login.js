@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import { loggedIn } from "../redux/postSlice";
 import { auth } from "../firebase";
 import "./Login.css";
+import { loggedIn } from "../redux/postSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleJoin = (e) => {
     e.preventDefault();
@@ -21,11 +21,7 @@ const Login = () => {
       auth
         .signInWithEmailAndPassword(email, password)
         .then(() => {
-          dispatch(
-            loggedIn({
-              userCreds: { mail: email, pass: password },
-            })
-          );
+          dispatch(loggedIn());
           history.push("/");
         })
         .catch((error) => {

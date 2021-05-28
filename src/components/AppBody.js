@@ -1,10 +1,14 @@
+import { useSelector } from "react-redux";
 import SideProfile from "./SideProfile";
 import Feed from "./Feed";
-const AppBody = ({ username, photo }) => {
+const AppBody = () => {
+  const { fullName, profilePic, email } = useSelector(
+    (state) => state.posts.creds
+  );
   return (
     <div className="appbody">
-      <SideProfile username={username} photo={photo} />
-      <Feed username={username} photo={photo} />
+      <SideProfile username={fullName} photo={profilePic} email={email} />
+      <Feed username={fullName} photo={profilePic} />
     </div>
   );
 };

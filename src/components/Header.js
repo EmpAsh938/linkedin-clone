@@ -9,8 +9,8 @@ import { CgMenuGridR } from "react-icons/cg";
 import Icon from "./Icon";
 import "./Header.css";
 
-const Header = ({ username, photo }) => {
-  const user = useSelector((state) => state.posts.creds);
+const Header = () => {
+  const { fullName, profilePic } = useSelector((state) => state.posts.creds);
   return (
     <div className="header">
       <div className="header__nav">
@@ -29,9 +29,9 @@ const Header = ({ username, photo }) => {
           <Icon title="Jobs" DefaultIcon={FaSuitcaseRolling} />
           <Icon title="Notifications" DefaultIcon={IoMdNotifications} />
           <Icon
-            title={user.fullName || username}
+            title={fullName}
             DefaultIcon={BsPeopleCircle}
-            profileImage={photo}
+            profileImage={profilePic}
           />
           <Icon title="Work" DefaultIcon={CgMenuGridR} />
         </div>

@@ -14,21 +14,27 @@ import "./Feed.css";
 
 const Feed = ({ username, photo }) => {
   const [input, setInput] = useState("");
-  const [tempPosts, setTempPosts] = useState([]);
+  const [tempPost, setTempPost] = useState([]);
 
   const messages = useSelector((state) => state.posts.userPosts);
   const user = useSelector((state) => state.posts.creds.fullName);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
-      setTempPosts(snapshot.docs.map((doc) => doc.data()));
-    });
+    db.collection("posts")
+      .orderBy("id", "desc")
+      .onSnapshot((snapshot) => {
+        setTempPost(
+          snapshot.docs.map((doc) => {
+            return doc.data();
+          })
+        );
+      });
   }, []);
 
   useEffect(() => {
-    dispatch(getFirebasePost(tempPosts));
-  }, [tempPosts]);
+    dispatch(getFirebasePost(tempPost));
+  }, [tempPost]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,12 +43,12 @@ const Feed = ({ username, photo }) => {
         id: new Date().getTime().toString(),
         text: input,
       });
-      dispatch(
-        addPost({
-          id: new Date().getTime().toString(),
-          text: input,
-        })
-      );
+      // dispatch(
+      //   addPost({
+      //     id: new Date().getTime().toString(),
+      //     text: input,
+      //   })
+      // );
     }
     setInput("");
   };

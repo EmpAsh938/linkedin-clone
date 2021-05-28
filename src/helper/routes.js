@@ -20,3 +20,24 @@ export function ProtectedRoute({ isUserLogged, children, ...rest }) {
     />
   );
 }
+
+export function UserRedirect({ isUserLogged, children, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        if (!isUserLogged) {
+          return children;
+        }
+        return (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: location },
+            }}
+          />
+        );
+      }}
+    />
+  );
+}

@@ -1,19 +1,31 @@
+import { useDispatch } from "react-redux";
+
+import { auth } from "../firebase";
 import Header from "../components/Header";
 import AppBody from "../components/AppBody";
-import { auth } from "../firebase";
-import { useState } from "react";
+import { createAccount } from "../redux/postSlice";
+import { useEffect } from "react";
 
 const Home = () => {
-  const [user, setUser] = useState("");
-  const [photoURL, setPhotoURL] = useState("");
-  auth.onAuthStateChanged((userCred) => {
-    setUser(userCred.displayName);
-    setPhotoURL(userCred.photoURL);
-  });
+  const dispatch = useDispatch();
+  useEffect(() => {
+    auth.onAuthStateChanged((userCred) => {
+      if (userCred) {
+        localStorage.setItem("UserCred", JSON.stringify(userCred));
+        dispatch(
+          createAccount({
+            fname: userCred.displayName,
+            mail: userCred.email,
+            pic: userCred.photoURL,
+          })
+        );
+      }
+    });
+  }, []);
   return (
     <>
-      <Header username={user} photo={photoURL} />
-      <AppBody username={user} photo={photoURL} />
+      <Header />
+      <AppBody />
     </>
   );
 };
