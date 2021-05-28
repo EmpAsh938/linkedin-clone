@@ -1,0 +1,18 @@
+.dummybutton {
+  display: flex;
+  gap: 0.5em;
+}
+
+.dummybutton__icon {
+  font-size: 1.2rem;
+}
+
+.dummybutton:nth-last-child(1) {
+  display: none;
+}
+
+@media screen and (min-width: 470px) {
+  .dummybutton:nth-last-child(1) {
+    display: flex;
+  }
+}

@@ -2,17 +2,17 @@
   position: sticky;
   top: 0;
   width: 100vw;
-  height: 90px;
+  height: 50px;
   background: #fff;
-  padding: 1em 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 .header__nav {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .header__left {
@@ -20,42 +20,48 @@
   align-items: center;
 }
 
-.header__left > img {
+.header__left img {
   height: 30px;
   object-fit: contain;
 }
 
 .header__form {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
   display: flex;
   flex-direction: row-reverse;
-  padding: 0.2em 0.5em;
+  align-items: center;
+  padding: 0.5em;
+}
+
+.header__search {
+  margin-right: 0.3em;
+  color: #222;
 }
 
 .header__form > input {
   border: none;
   outline: none;
-  font-size: 0.8rem;
-  font-weight: 200;
+  font-size: 0.9rem;
+  font-weight: 400;
   letter-spacing: 1.5px;
-}
-
-.header__search {
-  margin-right: 0.2em;
-  cursor: pointer;
-  color: gray;
-}
-
-.header__search:hover {
   color: #222;
-}
-
-/* This CSS is not working  */
-.header__form > input:focus .header__form {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: transparent;
+  display: none;
 }
 
 .header__right {
   display: flex;
-  gap: 0.5em;
+  /* gap: 2em; */
+}
+
+@media screen and (min-width: 850px) {
+  .header {
+    height: 70px;
+  }
+  .header__nav {
+    justify-content: space-around;
+  }
+  .header__form > input {
+    display: block;
+  }
 }

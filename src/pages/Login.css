@@ -1,0 +1,85 @@
+.account {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+}
+
+.account__wrapper {
+  max-width: 400px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1em;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(27, 132, 230);
+}
+
+.account__image {
+  height: 50px;
+  object-fit: contain;
+}
+
+.account__title {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+}
+
+.account__form {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.account__input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.account__input > label {
+  text-align: left;
+  margin-left: 0.2em;
+  color: #555;
+}
+
+.account__input > input {
+  font-size: 0.97rem;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.account__agreement {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.account__agreement > span {
+  color: rgb(27, 132, 230);
+  font-weight: 600;
+}
+
+.account__button {
+  border: none;
+  background: rgb(27, 132, 230);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1em;
+  transition: all 0.3s linear;
+}
+
+.account__button:hover {
+  cursor: pointer;
+  background: rgb(51, 145, 233);
+}

@@ -1,0 +1,106 @@
+.feed {
+  flex: 1;
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
+.feed__comment,
+.feed__note {
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 1em;
+  box-sizing: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background: #fff;
+}
+
+.feed__write {
+  width: 100%;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 0.4em;
+}
+
+.feed__write > svg {
+  font-size: 1.3rem;
+  /* color: gray; */
+}
+
+.feed__write > input {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  margin-left: 0.2em;
+  flex: 1;
+}
+
+.feed__dummy {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.feed__posts {
+  /* border: solid red; */
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.feed__header {
+  display: flex;
+  align-items: center;
+}
+
+.feed__image {
+  display: inline-block;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.feed__header > h3 {
+  margin-left: 0.5em;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.feed__post {
+  margin: 1em 0;
+  font-size: 0.9rem;
+}
+
+.feed__button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feed__button > div {
+  cursor: pointer;
+  color: #555;
+}
+
+.feed__button > div:hover {
+  color: #333;
+}
+
+.feed__button svg {
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 470px) {
+  .feed {
+    flex: 0.5;
+    align-items: flex-start;
+  }
+  .feed__dummy {
+    gap: 1em;
+  }
+  .feed__comment,
+  .feed__note {
+    width: 100%;
+  }
+}
